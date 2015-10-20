@@ -1,0 +1,646 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="6.99b">
+	<xs:simpleType name="B2BCatalogAntireflexTypes">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NONE"/>
+			<xs:enumeration value="SINGLE"/>
+			<xs:enumeration value="MULTIPLE"/>
+			<xs:enumeration value="SUPER"/>
+			<xs:enumeration value="BACK"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B2BCatalogBrands">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="STANDARD"/>
+			<xs:enumeration value="BRAND"/>
+			<xs:enumeration value="ECO"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B2BCatalogCleanTypes">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NONE"/>
+			<xs:enumeration value="NORMAL"/>
+			<xs:enumeration value="SUPER"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B2BCatalogCode">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="6"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B2BCatalogCodeColor">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B2BCatalogColorTypes">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NONE"/>
+			<xs:enumeration value="FILTER"/>
+			<xs:enumeration value="COLOR"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B2BCatalogContactTypes">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="GENERAL"/>
+			<xs:enumeration value="ORDER"/>
+			<xs:enumeration value="SUPPORT"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B2BCatalogMaterials">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="GLASS"/>
+			<xs:enumeration value="PLASTIC"/>
+			<xs:enumeration value="POLYCARBONATE"/>
+			<xs:enumeration value="TRIVEX"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B2BCatalogOfficeLensOrderTypes">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NOSPECIFIC"/>
+			<xs:enumeration value="ADDITION"/>
+			<xs:enumeration value="DECREASE"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B2BCatalogOpticalTypes">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="SINGLEVISION"/>
+			<xs:enumeration value="BIFOCALS"/>
+			<xs:enumeration value="TRIFOCALS"/>
+			<xs:enumeration value="PROGRESSIVE"/>
+			<xs:enumeration value="OFFICE"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B2BCatalogPrincipalMeridianCheckTypes">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="STANDARD"/>
+			<xs:enumeration value="NEAR"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B2BCatalogPriceTypes">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="PURCHASEPRICE"/>
+			<xs:enumeration value="SELLINGPRICE"/>
+			<xs:enumeration value="SELLINGPRICE_WITH_INSURANCE"/>
+			<xs:enumeration value="SELLINGPRICE_LEVEL1"/>
+			<xs:enumeration value="SELLINGPRICE_LEVEL2"/>
+			<xs:enumeration value="BONUS_PURCHASEPRICE"/>
+			<xs:enumeration value="CALC_PURCHASEPRICE"/>
+			<xs:enumeration value="MANUALPROCESSING"/>
+			<xs:enumeration value="CALC_PURCHASEPRICE_LEVEL1"/>
+			<xs:enumeration value="CALC_PURCHASEPRICE_LEVEL2"/>
+			<xs:enumeration value="OTHER_PURCHASEPRICE"/>
+			<xs:enumeration value="OTHER_SELLINGPRICE"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B2BCatalogPrintPriceListFormats">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="PDF"/>
+			<xs:enumeration value="XFDF"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B2BCatalogRefSteps">
+		<xs:restriction base="xs:float">
+			<xs:enumeration value="1.0"/>
+			<xs:enumeration value="0.5"/>
+			<xs:enumeration value="0.25"/>
+			<xs:enumeration value="0.125"/>
+			<xs:enumeration value="0.1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B2BCatalogSingleLensOrder">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="YES"/>
+			<xs:enumeration value="NO"/>
+			<xs:enumeration value="VIRTUALLENS"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B2BCatalogSoftwareTypes">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="CONVERTER"/>
+			<xs:enumeration value="GENERATOR"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B2BCatalogSupplierTypes">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="MANUFACTURER"/>
+			<xs:enumeration value="SUBSUPPLIER"/>
+			<xs:enumeration value="OTHER"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B2BCatalogTopologies">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="SPHERICAL"/>
+			<xs:enumeration value="ASPHERIC"/>
+			<xs:enumeration value="BIASPHERICAL"/>
+			<xs:enumeration value="FREEFORM"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B2BCatalogUniqueTypes">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="SUPPLIER"/>
+			<xs:enumeration value="POSTEDIT"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="B2BCatalogAddition">
+		<xs:sequence>
+			<xs:element name="from" type="xs:float"/>
+			<xs:element name="to" type="xs:float"/>
+			<xs:element name="step" type="B2BCatalogRefSteps" default="0.25" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="B2BCatalogAddress">
+		<xs:sequence>
+			<xs:element name="addressLine" type="xs:string" minOccurs="0" maxOccurs="2"/>
+			<xs:element name="street" type="xs:string" minOccurs="0"/>
+			<xs:element name="zip" type="xs:string" minOccurs="0"/>
+			<xs:element name="city" type="xs:string" minOccurs="0"/>
+			<xs:element name="poBox" type="xs:string" minOccurs="0"/>
+			<xs:element name="poBoxZip" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="B2BCatalogBalacingLens">
+		<xs:simpleContent>
+			<xs:extension base="xs:boolean">
+				<xs:attribute name="lensTerms" type="xs:float"/>
+				<xs:attribute name="optionsTerms" type="xs:float"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="B2BCatalogContactInfo">
+		<xs:sequence>
+			<xs:element name="phone" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="fax" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="eMail" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="url" type="xs:anyURI" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="typeOf" type="B2BCatalogContactTypes" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="B2BCatalogCurrency">
+		<xs:sequence>
+			<xs:element name="code" type="xs:string"/>
+			<xs:element name="subunit" type="xs:string" minOccurs="0"/>
+			<xs:element name="decimals" type="xs:boolean" default="true" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="B2BCatalogCylinder">
+		<xs:sequence>
+			<xs:element name="from" type="xs:float"/>
+			<xs:element name="to" type="xs:float"/>
+			<xs:element name="step" type="B2BCatalogRefSteps" default="0.25" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="B2BCatalogCylinderGroups">
+		<xs:sequence>
+			<xs:element name="cylinderGroup" type="B2BCatalogEffectGroup" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="B2BCatalogCylinderPart">
+		<xs:sequence>
+			<xs:element name="from" type="xs:unsignedInt"/>
+			<xs:element name="to" type="xs:unsignedInt"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="B2BCatalogDatePeriod">
+		<xs:sequence>
+			<xs:element name="start" type="xs:date" minOccurs="0"/>
+			<xs:element name="end" type="xs:date" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="B2BCatalogDiameter">
+		<xs:sequence>
+			<xs:element name="physical" type="xs:unsignedInt"/>
+			<xs:element name="optical" type="xs:unsignedInt" minOccurs="0"/>
+			<xs:element name="elliptic" type="xs:boolean" default="false" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="B2BCatalogDiameterSimple">
+		<xs:sequence>
+			<xs:element name="physical" type="xs:unsignedInt"/>
+			<xs:element name="optical" type="xs:unsignedInt" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="B2BCatalogEffectGroup">
+		<xs:simpleContent>
+			<xs:extension base="xs:decimal">
+				<xs:attribute name="code" type="B2BCatalogCode" use="required"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="B2BCatalogEffectGroups">
+		<xs:sequence>
+			<xs:element name="cylinderGroups" type="B2BCatalogCylinderGroups" minOccurs="0"/>
+			<xs:element name="prismGroups" type="B2BCatalogPrismGroups" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="B2BCatalogHeader">
+		<xs:sequence>
+			<xs:element name="software" type="B2BCatalogSoftware" maxOccurs="unbounded"/>
+			<xs:element name="comment" type="xs:string" minOccurs="0"/>
+			<xs:element name="uniqueId" type="B2BCatalogUniqueId" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="valid" type="B2BCatalogDatePeriod" minOccurs="0"/>
+			<xs:element name="country" type="xs:string" minOccurs="0"/>
+			<xs:element name="language" type="xs:string" minOccurs="0"/>
+			<xs:element name="supplier" type="B2BCatalogSupplier" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="priceDefinitionPlusCylinder" type="xs:boolean"/>
+			<xs:element name="currency" type="B2BCatalogCurrency"/>
+			<xs:element name="pricefields" type="B2BCatalogPriceFields" minOccurs="0"/>
+			<xs:element name="effectGroups" type="B2BCatalogEffectGroups" minOccurs="0"/>
+			<xs:element name="printpricelists" type="B2BCatalogPrintPriceLists" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="B2BCatalogIncludedCoatings">
+		<xs:sequence>
+			<xs:element name="antireflex" type="B2BCatalogAntireflexTypes" minOccurs="0"/>
+			<xs:element name="color" type="B2BCatalogColorTypes" minOccurs="0"/>
+			<xs:element name="photocromic" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="hard" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="clean" type="B2BCatalogCleanTypes" minOccurs="0"/>
+			<xs:element name="uv" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="reflexed" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="polarising" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="contrastEnhancing" type="xs:boolean" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="B2BCatalogIncludedOptions">
+		<xs:sequence>
+			<xs:element name="thicknessreduction" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="specialDiameter" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="specialThickness" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="insurance" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="extentedWarranty" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="prism" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="wavefrontOptimized" type="xs:boolean" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="B2BCatalogLens">
+		<xs:sequence>
+			<xs:element name="commercialCode" type="B2BCatalogCode"/>
+			<xs:element name="name" type="xs:string"/>
+			<xs:element name="nameShort" type="xs:string" minOccurs="0"/>
+			<xs:element name="sorting" type="xs:unsignedInt" minOccurs="0"/>
+			<xs:element name="valid" type="B2BCatalogDatePeriod" minOccurs="0"/>
+			<xs:element name="opticalType" type="B2BCatalogOpticalTypes"/>
+			<xs:element name="brand" type="B2BCatalogBrands"/>
+			<xs:element name="materialId" type="xs:unsignedInt"/>
+			<xs:element name="balacingLens" type="B2BCatalogBalacingLens" minOccurs="0"/>
+			<xs:element name="specificWeight" type="xs:float" minOccurs="0"/>
+			<xs:element name="lenti" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="trafficRestrictions" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="travellerService" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="singleLensOrder" type="B2BCatalogSingleLensOrder" minOccurs="0"/>
+			<xs:element name="officeLensOrder" type="B2BCatalogOfficeLensOrderTypes" minOccurs="0"/>
+			<xs:element name="principalMeridianCheck" type="B2BCatalogPrincipalMeridianCheckTypes" minOccurs="0"/>
+			<xs:element name="opticalProperties" type="B2BCatalogOpticalProperties" minOccurs="0"/>
+			<xs:element name="includedCoatings" type="B2BCatalogIncludedCoatings" minOccurs="0"/>
+			<xs:element name="includedOptions" type="B2BCatalogIncludedOptions" minOccurs="0"/>
+			<xs:element name="ranges" type="B2BCatalogLensRanges" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="B2BCatalogLenses">
+		<xs:sequence>
+			<xs:element name="lens" type="B2BCatalogLens" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="B2BCatalogLensPrice"/>
+	<xs:complexType name="B2BCatalogLensPrices"/>
+	<xs:complexType name="B2BCatalogLensRange">
+		<xs:sequence>
+			<xs:element name="diameter" type="B2BCatalogDiameter"/>
+			<xs:element name="minDiameter" minOccurs="0">
+				<xs:complexType mixed="false">
+					<xs:complexContent>
+						<xs:extension base="B2BCatalogDiameterSimple">
+							<xs:sequence>
+								<xs:element name="step" type="xs:unsignedInt"/>
+							</xs:sequence>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="minDecentration" type="xs:unsignedInt" minOccurs="0"/>
+			<xs:element name="valid" type="B2BCatalogDatePeriod" minOccurs="0"/>
+			<xs:element name="maxMeridian" type="B2BCatalogMaxMeridian"/>
+			<xs:element name="cylinder" type="B2BCatalogCylinder"/>
+			<xs:element name="cylinderPart" type="B2BCatalogCylinderPart"/>
+			<xs:element name="prism" type="B2BCatalogPrism" minOccurs="0"/>
+			<xs:element name="addition" type="B2BCatalogAddition" minOccurs="0"/>
+			<xs:element name="sphere" type="B2BCatalogSphere" minOccurs="0"/>
+			<xs:element name="stockLens" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="aproxDeliveryTime" type="xs:duration" minOccurs="0"/>
+			<xs:element name="discountable" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="onlineorder" type="B2BCatalogOnlineorder" minOccurs="0"/>
+			<xs:element name="combinations" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="combinationId" type="xs:unsignedInt" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="prices" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="lensPriceId" type="xs:unsignedInt" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="baseCurves" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="baseCurve" type="xs:float" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="B2BCatalogLensRanges">
+		<xs:sequence>
+			<xs:element name="range" type="B2BCatalogLensRange" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="B2BCatalogMaxMeridian">
+		<xs:sequence>
+			<xs:element name="from" type="xs:float"/>
+			<xs:element name="to" type="xs:float"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="B2BCatalogOnlineorder">
+		<xs:sequence>
+			<xs:element name="allowed" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="discount" type="xs:boolean" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="B2BCatalogOpticalProperties">
+		<xs:sequence>
+			<xs:element name="filterCategory" type="xs:unsignedInt" minOccurs="0"/>
+			<xs:element name="filterCategoryExposed" type="xs:unsignedInt" minOccurs="0"/>
+			<xs:element name="uvTreshold" type="xs:int" minOccurs="0"/>
+			<xs:element name="uvATransmission" type="xs:float" minOccurs="0"/>
+			<xs:element name="uvBTransmission" type="xs:float" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="B2BCatalogOption">
+		<xs:sequence>
+			<xs:element name="commercialCode" type="B2BCatalogCode"/>
+			<xs:element name="name" type="xs:string"/>
+			<xs:element name="colors" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="color" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="commercialCode" type="B2BCatalogCode"/>
+									<xs:element name="name" type="xs:string"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="prices" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="optionPriceId" type="xs:unsignedInt" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="orderOptions" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="orderOption" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="orderOptionId" type="xs:unsignedInt"/>
+									<xs:element name="lenses" minOccurs="0">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="commercialCode" type="B2BCatalogCode" maxOccurs="unbounded"/>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="B2BCatalogOptions">
+		<xs:sequence>
+			<xs:element name="option" type="B2BCatalogOption" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="B2BCatalogPriceField">
+		<xs:sequence>
+			<xs:element name="id" type="xs:unsignedInt"/>
+			<xs:element name="description" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="typeOf" type="B2BCatalogPriceTypes" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="B2BCatalogPriceFields">
+		<xs:sequence>
+			<xs:element name="pricefield" type="B2BCatalogPriceField" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="B2BCatalogPrintPriceLists">
+		<xs:sequence>
+			<xs:element name="printpricelist" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:string">
+							<xs:attribute name="format" type="B2BCatalogPrintPriceListFormats" use="required"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="B2BCatalogPrism">
+		<xs:sequence>
+			<xs:element name="to" type="xs:float"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="B2BCatalogPrismGroups">
+		<xs:sequence>
+			<xs:element name="prismGroup" type="B2BCatalogEffectGroup" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="B2BCatalogSoftware">
+		<xs:sequence>
+			<xs:element name="name" type="xs:string"/>
+			<xs:element name="version" type="xs:string"/>
+		</xs:sequence>
+		<xs:attribute name="typeOf" type="B2BCatalogSoftwareTypes" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="B2BCatalogSphere">
+		<xs:sequence>
+			<xs:element name="step" type="B2BCatalogRefSteps" default="0.25" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="B2BCatalogSupplier">
+		<xs:sequence>
+			<xs:element name="code" type="xs:string" minOccurs="0"/>
+			<xs:element name="name" type="xs:string" minOccurs="0"/>
+			<xs:element name="address" type="B2BCatalogAddress" minOccurs="0"/>
+			<xs:element name="contactInfo" type="B2BCatalogContactInfo" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="typeOf" type="B2BCatalogSupplierTypes" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="B2BCatalogUniqueId">
+		<xs:sequence>
+			<xs:element name="id" type="xs:string"/>
+		</xs:sequence>
+		<xs:attribute name="typeOf" type="B2BCatalogUniqueTypes" use="required"/>
+	</xs:complexType>
+	<xs:element name="b2bOpticLensCatalog">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="header" type="B2BCatalogHeader"/>
+				<xs:element name="lenses" type="B2BCatalogLenses"/>
+				<xs:element name="lensMaterials">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="material" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="material" type="B2BCatalogMaterials"/>
+										<xs:element name="opticalIndex" type="xs:float" minOccurs="0"/>
+										<xs:element name="abbe" type="xs:float" minOccurs="0"/>
+										<xs:element name="topology" type="B2BCatalogTopologies" minOccurs="0"/>
+									</xs:sequence>
+									<xs:attribute name="id" type="xs:unsignedInt" use="required"/>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="lensPrices" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="price" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="valid" type="B2BCatalogDatePeriod" minOccurs="0"/>
+										<xs:element name="combinationId" type="xs:unsignedInt" minOccurs="0"/>
+										<xs:element name="value" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:simpleContent>
+													<xs:extension base="xs:float">
+														<xs:attribute name="priceFieldId" type="xs:unsignedInt"/>
+													</xs:extension>
+												</xs:simpleContent>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+									<xs:attribute name="id" type="xs:unsignedInt" use="required"/>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="options" type="B2BCatalogOptions" minOccurs="0"/>
+				<xs:element name="orderOptions" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="orderOption" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="types">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="type" type="xs:string" maxOccurs="unbounded"/>
+												</xs:sequence>
+												<xs:attribute name="priority" type="xs:string" use="required"/>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="childs" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="childId" type="xs:unsignedInt" maxOccurs="unbounded"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+									<xs:attribute name="id" type="xs:unsignedInt" use="required"/>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="optionPrices" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="price" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="valid" type="B2BCatalogDatePeriod" minOccurs="0"/>
+										<xs:element name="lenses" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="commercialCode" type="xs:string" maxOccurs="unbounded"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="value" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:simpleContent>
+													<xs:extension base="xs:float">
+														<xs:attribute name="priceFieldId" type="xs:unsignedInt"/>
+													</xs:extension>
+												</xs:simpleContent>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+									<xs:attribute name="id" type="xs:unsignedInt" use="required"/>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="combinations" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="combination" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="options">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="option" maxOccurs="unbounded">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="commercialCode" type="B2BCatalogCode"/>
+																<xs:element name="colorRestrictions" minOccurs="0">
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element name="commercialCode" type="B2BCatalogCode" maxOccurs="unbounded"/>
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="childs" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="childId" type="xs:unsignedInt" maxOccurs="unbounded"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+									<xs:attribute name="id" type="xs:unsignedInt" use="required"/>
+									<xs:attribute name="minSelection" type="xs:unsignedInt" use="required"/>
+									<xs:attribute name="maxSelection" type="xs:unsignedInt"/>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
